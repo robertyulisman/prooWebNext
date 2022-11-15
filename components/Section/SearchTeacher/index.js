@@ -62,14 +62,14 @@ const SearchTeacher = () => {
       id="home"
       className="px-2 md:px-4 lg:px-20 pt-[200px] pb-[20px] md:py-0 h-[100%] md:h-[100vh] flex flex-col md:flex-row "
     >
-      <div className="w-full flex mt-0 lg:mt-[200px] justify-center md:justify-start ml-0 md:ml-6 ">
-        <div>
-          <h1 className="font-bold text-[26px] md:text-[32px] xl:text-[50px] leading-4">
+      <div className="w-full flex mt-0 lg:mt-[200px] justify-center md:justify-start ml-0 md:ml-10 ">
+        <div className="w-[500px] md:w-[500px] xl:w-[600px]">
+          <h1 className="font-bold text-[26px] md:text-[40px] xl:text-[50px] leading-4">
             {locale === "id-ID"
               ? "Cari Guru Private"
               : "Find a Private Teacher"}
           </h1>
-          <div className="mt-8">
+          <div className="mt-4 md:mt-6 lg:mt-10">
             <Typed
               className="text-[24px] text-slate-600 "
               strings={

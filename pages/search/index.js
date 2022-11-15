@@ -11,6 +11,7 @@ import {
   HiArrowSmLeft,
   HiStar,
 } from "react-icons/hi";
+import { MdVerified } from "react-icons/md";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { apiUrl } from "../../service/api";
@@ -331,7 +332,13 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                   />
                 </div>
 
-                <p className="text-center">{item.nama}</p>
+                <div className="flex">
+                  <p className="text-center font-bold">{item.nama}</p>
+                  {item.isVerified && (
+                    <MdVerified className="text-sky-500 text-[24px]" />
+                  )}
+                </div>
+
                 {/* <div className="flex mb-4">
                   <HiStar size={24} color={"#f59e0b"} />
                   <span className="text-center ml-2">{item.rating}</span>
@@ -389,26 +396,26 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                     height={300}
                   />
                   <Paragraf keyItem="Nama" valueItem={guruSelected?.nama} />
-                  <Paragraf
+                  {/* <Paragraf
                     keyItem="TTL"
                     valueItem={`${guruSelected?.tempatLahir}, ${guruSelected?.tanggalLahir}`}
-                  />
-                  <Paragraf
+                  /> */}
+                  {/* <Paragraf
                     keyItem="email"
                     valueItem={`${guruSelected?.email.toLowerCase()}`}
-                  />
+                  /> */}
                   <Paragraf
                     keyItem="Kelurahan"
                     valueItem={`${guruSelected?.kelurahan}`}
                   />
-                  <Paragraf
+                  {/* <Paragraf
                     keyItem="Kabupaten / Kota"
                     valueItem={`${guruSelected?.kabupaten_kota}`}
-                  />
-                  <Paragraf
+                  /> */}
+                  {/* <Paragraf
                     keyItem="Provinsi"
                     valueItem={`${guruSelected?.provinsi}`}
-                  />
+                  /> */}
                   <Paragraf
                     keyItem="Pendidikan Terakhir"
                     valueItem={`${guruSelected?.pendidikanTerakhir}`}

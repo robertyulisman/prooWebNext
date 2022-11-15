@@ -36,6 +36,7 @@ export default function Navbar({ home }) {
       <div className="flex items-center justify-between px-4 lg:px-20 h-[70px]">
         <div className="w-[80px] md:w-[120px] h-auto">
           <Image
+            title="Proo Private Ngaji"
             src={Logo}
             alt="Picture of the author"
             width={120}
