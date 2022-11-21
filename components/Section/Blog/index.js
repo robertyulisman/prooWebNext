@@ -81,7 +81,6 @@ const Blog = () => {
       pathname: "/blog_detail",
       query: {
         _id: item._id,
-        title: item.nama,
       },
     });
   };

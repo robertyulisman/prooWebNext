@@ -42,7 +42,7 @@ const BlogDetail = () => {
 
   const [data, setData] = React.useState(null);
   const [backgroundwhite, setBackgroundWhite] = React.useState(false);
-  const shareUrl = `https://proo.co.id/blog_detail=${router.query._id}&title=${router.query.title}`;
+  const shareUrl = `https://proo.co.id/blog_detail?_id=${router.query._id}`;
   console.log("shareUrl", shareUrl);
 
   const handleWindowScroll = () => {
