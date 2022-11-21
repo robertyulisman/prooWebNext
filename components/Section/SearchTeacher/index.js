@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Person from "../../../public/asset/women1.png";
 import Typed from "react-typed";
-import { Comment1, Comment2 } from "../../Comment";
 import Router, { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 

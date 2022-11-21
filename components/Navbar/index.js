@@ -2,11 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Logo from "../../public/asset/logo.png";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Link as LinkScroll } from "react-scroll";
-import { HiMenu } from "react-icons/hi";
+import { HiMenu, HiArrowSmLeft } from "react-icons/hi";
+import { RiArrowLeftLine } from "react-icons/ri";
+import Router, { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
-export default function Navbar({ home }) {
+export default function Navbar({ home, back }) {
   const [backgroundwhite, setBackgroundWhite] = React.useState(false);
   const { locale, locales, asPath } = useRouter();
 
@@ -27,6 +29,12 @@ export default function Navbar({ home }) {
     return () => window.removeEventListener("scroll", handleWindowScroll);
   }, []);
 
+  const handleClickLogo = () => {
+    Router.push({
+      pathname: "/",
+    });
+  };
+
   return (
     <div
       className={`w-full fixed z-[999] transition-all duration-700 bg-white ${
@@ -34,7 +42,21 @@ export default function Navbar({ home }) {
       }`}
     >
       <div className="flex items-center justify-between px-4 lg:px-20 h-[70px]">
-        <div className="w-[80px] md:w-[120px] h-auto">
+        {back && (
+          <motion.button
+            onClick={handleClickLogo}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0, x: 100 }}
+            className="p-4 hover:bg-white rounded-full hover:shadow-xl mr-2 hover:border-[1px] hover:border-slate-200 duration-300 ease-in-out"
+          >
+            <RiArrowLeftLine size={24} color={"#0f172a"} />
+          </motion.button>
+        )}
+
+        <div
+          onClick={handleClickLogo}
+          className="w-[80px] md:w-[120px] h-auto hover:cursor-pointer"
+        >
           <Image
             title="Proo Private Ngaji"
             src={Logo}
@@ -79,14 +101,18 @@ export default function Navbar({ home }) {
               >
                 <span>{locale === "id-ID" ? "Produk" : "Product"}</span>
               </LinkScroll>
-
-              <span
-                className={`bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
+              <LinkScroll
+                className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
                   backgroundwhite ? "shadow-md" : ""
-                } ease-in-out all duration-200`}
+                } ease-in-out all duration-200 `}
+                to="blog"
+                spy={true}
+                smooth={true}
+                duration={500}
               >
-                {locale === "id-ID" ? "Blog" : "Blog"}
-              </span>
+                <span>{locale === "id-ID" ? "Blog" : "Blog"}</span>
+              </LinkScroll>
+
               <LinkScroll
                 className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
                   backgroundwhite ? "shadow-md" : ""

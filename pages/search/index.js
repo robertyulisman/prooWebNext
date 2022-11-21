@@ -11,6 +11,7 @@ import {
   HiArrowSmLeft,
   HiStar,
 } from "react-icons/hi";
+
 import { MdVerified } from "react-icons/md";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -136,18 +137,10 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
           rel="stylesheet"
         />
       </Head>
-      <Navbar />
+      <Navbar back />
       <div className="pt-[70px] px-4 md:px-20 max-w-[900px]  m-auto relative">
         {/* search bar start */}
         <div className="flex mt-[100px] items-center hover:cursor-pointer">
-          <motion.div
-            onClick={handleBack}
-            animate={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0, scale: 0 }}
-            className="p-4 hover:bg-white rounded-full hover:shadow-xl mr-2 hover:border-[1px] hover:border-slate-200 duration-300 ease-in-out"
-          >
-            <HiArrowSmLeft size={24} color={"#0f172a"} />
-          </motion.div>
           <div className="bg-white shadow-2xl border-[1px] border-slate-200 py-2 px-2 rounded-xl flex  ">
             <div className="flex w-full">
               <motion.div

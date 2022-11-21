@@ -1,8 +1,10 @@
-import { GET_LESSON, GET_CITY } from "../types";
+import { GET_LESSON, GET_CITY, GET_CATEGORY, GET_BLOG } from "../types";
 
 const initialState = {
   lesson: [],
   city: [],
+  kategoriBlog: [],
+  dataBlog: [],
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -16,6 +18,16 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         city: action.payload,
+      };
+    case GET_CATEGORY:
+      return {
+        ...state,
+        kategoriBlog: action.payload,
+      };
+    case GET_BLOG:
+      return {
+        ...state,
+        dataBlog: action.payload,
       };
 
     default:
