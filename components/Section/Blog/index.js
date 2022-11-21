@@ -91,6 +91,7 @@ const Blog = () => {
         <div className="flex gap-6 justify-center pt-0 md:pt-4 pb-10">
           {kategoriBlog.map((item) => (
             <button
+              key={item.kategori}
               onClick={() => handleClikKategori(item)}
               className={`font-bold  ${
                 blogSelected === item.kategori
@@ -106,6 +107,7 @@ const Blog = () => {
         <div className="sm:hidden h-full min-h-[300px] overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide my-3">
           {dataBlogArtikel.map((item, index) => (
             <motion.div
+              key={item._id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0, transition: { delay: 0.2 * index } }}
               className=" w-[80%] inline-block bg-white shadow-lg rounded-md overflow-hidden hover:scale-105 duration-300 ease-in-out hover:cursor-pointer mr-4"
@@ -124,6 +126,7 @@ const Blog = () => {
         <div className=" hidden min-h-[300px] sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4">
           {dataBlogArtikel.map((item, index) => (
             <motion.div
+              key={item._id}
               onClick={() => handleDetailBlog(item)}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0, transition: { delay: 0.3 * index } }}
