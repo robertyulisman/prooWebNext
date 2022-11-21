@@ -134,10 +134,10 @@ const Produk = () => {
         <Fade bottom>
           <div className="flex gap-2 w-full flex-wrap">
             <span className="font-bold bg-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              Iqra' + Bimbel (Req)
+              Iqra + Bimbel (Req)
             </span>
             <span className="font-bold bg-slate-900 text-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              Al-Qur'an + Bimbel (Req)
+              Al-Qur an + Bimbel (Req)
             </span>
             <span className="font-bold bg-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
               Calistung
