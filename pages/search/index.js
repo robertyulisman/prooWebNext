@@ -165,7 +165,11 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                     setShowPelajaran(true);
                     setShowLocation(false);
                   }}
-                  onBlur={() => setShowPelajaran(false)}
+                  onBlur={() =>
+                    setTimeout(() => {
+                      setShowPelajaran(false);
+                    }, 200)
+                  }
                   className="w-full md:w-[250px] p-2 focus:outline-none"
                   type="text"
                   value={pelajaran}
@@ -195,6 +199,11 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                       setShowLocation(true);
                     }, 300);
                   }}
+                  onBlur={() =>
+                    setTimeout(() => {
+                      setShowLocation(false);
+                    }, 200)
+                  }
                   value={location}
                   onChange={handleOnchangeLocation}
                   className="w-full md:w-[200px] p-2 focus:outline-none"
@@ -210,7 +219,7 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
               onClick={handleSubmitSearch}
               className={`ml-2 ${
                 locale === "id-ID" ? "w-[150px] " : " w-[100px] sm:w-[220px] "
-              } py-1  bg-primary rounded-md text-slate-800 font-bold`}
+              } py-1  bg-primary rounded-md text-slate-100 font-bold`}
             >
               {locale === "id-ID" ? "Cari Guru " : "Find a Teacher"}
             </motion.button>
@@ -251,7 +260,7 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                       }
                     );
                   }}
-                  className="py-2 px-4 hover:cursor-pointer hover:bg-primary "
+                  className="py-2 px-4 hover:cursor-pointer hover:bg-primary hover:text-slate-100 "
                   key={index}
                 >
                   {item.nama}
@@ -287,7 +296,7 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                     }
                   );
                 }}
-                className="py-2 px-4 hover:cursor-pointer hover:bg-primary "
+                className="py-2 px-4 hover:cursor-pointer hover:bg-primary hover:text-slate-100"
                 key={index}
               >
                 {item.kota}

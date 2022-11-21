@@ -29,8 +29,8 @@ export default function Navbar({ home }) {
 
   return (
     <div
-      className={`w-full fixed z-[999] transition-all duration-700 ${
-        backgroundwhite ? "backdrop-blur-sm shadow-lg !py-3" : ""
+      className={`w-full fixed z-[999] transition-all duration-700 bg-white ${
+        backgroundwhite ? "backdrop-blur-sm shadow-lg !py-1 bg-[#fffdfdc2]" : ""
       }`}
     >
       <div className="flex items-center justify-between px-4 lg:px-20 h-[70px]">
@@ -47,7 +47,7 @@ export default function Navbar({ home }) {
           {home && (
             <>
               <LinkScroll
-                className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-900 hover:font-bold py-2 px-4 rounded-full ${
+                className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
                   backgroundwhite ? "shadow-md" : ""
                 } ease-in-out all duration-200 `}
                 to="home"
@@ -58,39 +58,46 @@ export default function Navbar({ home }) {
                 <span>{locale === "id-ID" ? "Cari Guru" : "Search"}</span>
               </LinkScroll>
               <LinkScroll
-                className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-900 hover:font-bold py-2 px-4 rounded-full ${
+                className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
                   backgroundwhite ? "shadow-md" : ""
                 } ease-in-out all duration-200 `}
                 to="tentang"
                 spy={true}
                 smooth={true}
-                offset={60}
                 duration={500}
               >
                 <span>{locale === "id-ID" ? "Tentang Kami" : "About Us"}</span>
               </LinkScroll>
-              <span
-                className={`bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-900 hover:font-bold py-2 px-4 rounded-full ${
+              <LinkScroll
+                className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
                   backgroundwhite ? "shadow-md" : ""
-                } ease-in-out all duration-200`}
+                } ease-in-out all duration-200 `}
+                to="produk"
+                spy={true}
+                smooth={true}
+                duration={500}
               >
-                {locale === "id-ID" ? "Produk" : "Product"}
-              </span>
+                <span>{locale === "id-ID" ? "Produk" : "Product"}</span>
+              </LinkScroll>
 
               <span
-                className={`bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-900 hover:font-bold py-2 px-4 rounded-full ${
+                className={`bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
                   backgroundwhite ? "shadow-md" : ""
                 } ease-in-out all duration-200`}
               >
                 {locale === "id-ID" ? "Blog" : "Blog"}
               </span>
-              <span
-                className={`bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-900 hover:font-bold py-2 px-4 rounded-full ${
+              <LinkScroll
+                className={` bg-white hover:bg-primary text-slate-500 hover:cursor-pointer hover:text-slate-100 hover:font-bold py-2 px-4 rounded-full ${
                   backgroundwhite ? "shadow-md" : ""
-                } ease-in-out all duration-200`}
+                } ease-in-out all duration-200 `}
+                to="kontak"
+                spy={true}
+                smooth={true}
+                duration={500}
               >
-                {locale === "id-ID" ? "Kontak" : "Contact"}
-              </span>
+                <span> {locale === "id-ID" ? "Kontak" : "Contact"}</span>
+              </LinkScroll>
             </>
           )}
 

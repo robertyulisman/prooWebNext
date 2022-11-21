@@ -2,6 +2,9 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Tentang from "../components/Section/Tentang";
 import SearchTeacher from "../components/Section/SearchTeacher";
+import Kontak from "../components/Section/Kontak";
+import Testimoni from "../components/Section/Testimoni";
+import Produk from "../components/Section/Produk";
 
 export default function Home() {
   return (
@@ -24,7 +27,11 @@ export default function Home() {
       <main>
         <Navbar home />
         <SearchTeacher />
+
         <Tentang />
+        <Testimoni />
+        <Produk />
+        <Kontak />
       </main>
     </div>
   );
