@@ -174,6 +174,7 @@ const Produk = () => {
           <div className="flex gap-2 w-full flex-wrap">
             {dataPelajaran.map((item) => (
               <button
+                key={item._id}
                 onClick={() => handleChangePaket(item)}
                 className={`font-bold ${
                   pelajaranSelected === item.nama
