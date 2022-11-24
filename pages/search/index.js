@@ -11,6 +11,7 @@ import {
   HiArrowSmLeft,
   HiStar,
 } from "react-icons/hi";
+import { AiFillStar } from "react-icons/ai";
 
 import { MdVerified } from "react-icons/md";
 import { useSelector } from "react-redux";
@@ -18,6 +19,8 @@ import axios from "axios";
 import { apiUrl } from "../../service/api";
 import ReactLoading from "react-loading";
 import Modal from "../../components/Modal";
+import moment from "moment/moment";
+import "moment/locale/id";
 
 const Search = () => {
   const { lesson, city } = useSelector((state) => state.data);
@@ -32,6 +35,7 @@ const Search = () => {
   const [dataCityFilter, setDataCityFilter] = React.useState([]);
   const [dataGuru, setDataGuru] = React.useState([]);
   const [guruSelected, setGuruSelected] = React.useState(null);
+  console.log("guruSelected", guruSelected);
 
   const [showPelajaran, setShowPelajaran] = React.useState(false);
   const [showLocation, setShowLocation] = React.useState(false);
@@ -98,7 +102,7 @@ const Search = () => {
         <p>{keyItem}</p>
       </div>
       <span className="px-1">:</span>
-      <div className="flex-1">
+      <div style={{ whiteSpace: "pre-line" }} className="flex-1">
         <p>{valueItem}</p>
       </div>
     </div>
@@ -127,14 +131,6 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
         <meta
           name="description"
           content="Aplikasi Private Ngaji | Aplikasi Private Offline, Guru Datang kerumah, Jaminan Keamanan dan Guru Tersertifikasi"
-        />
-        <link rel="icon" href="/favicon.ico" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Montserrat:wght@200;400;500;600;700&display=swap"
-          rel="stylesheet"
         />
       </Head>
       <Navbar back />
@@ -426,13 +422,91 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                     keyItem="Profile Pendidikan"
                     valueItem={`${guruSelected?.profile}`}
                   />
+
                   <Paragraf
                     keyItem="Lain - lain"
                     valueItem={`${guruSelected?.kemampuanLainLain || "-"}`}
                   />
+                  <Paragraf
+                    keyItem="Pengalaman"
+                    valueItem={`${guruSelected?.pengalaman || "-"}`}
+                  />
+                  <Paragraf
+                    keyItem="Non Akademis"
+                    valueItem={guruSelected?.nonAkademis || "-"}
+                  />
+
+                  <div className="">
+                    {guruSelected?.reviews?.map((item) => (
+                      <div
+                        key={item._id}
+                        className="bg-slate-100 rounded-xl p-4 mt-2"
+                      >
+                        <div className="flex">
+                          <Image
+                            width={60}
+                            height={60}
+                            src={`${apiUrl}/${item.user.image}`}
+                            className="bg-slate-300 rounded-full w-[70px] h-[70px]"
+                          />
+                          <div className="ml-4">
+                            <p className="font-bold text-[22px]">
+                              {item.user.nama}{" "}
+                              <span className="text-[14px] font-normal hidden md:inline-block">
+                                / {item.user.kelurahan}, {item.user.kecamatan}
+                              </span>
+                            </p>
+                            <span className="text-[14px] font-normal flex md:hidden mb-3">
+                              {item.user.kelurahan}, {item.user.kecamatan}
+                            </span>
+                            {/* show Rating / Start */}
+                            <div className="flex gap-2">
+                              {item.jumlahRating === 1 ? (
+                                <AiFillStar className="text-orange-500" />
+                              ) : item.jumlahRating === 2 ? (
+                                <>
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                </>
+                              ) : item.jumlahRating === 3 ? (
+                                <>
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                </>
+                              ) : item.jumlahRating === 4 ? (
+                                <>
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                </>
+                              ) : (
+                                <>
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                  <AiFillStar className="text-orange-500" />
+                                </>
+                              )}
+                            </div>
+
+                            <p className="text-[14px] text-slate-500">
+                              {moment(item.createdAt).fromNow()}
+                            </p>
+                          </div>
+                        </div>
+
+                        <p className="bg-white mt-4 p-4 rounded-md">
+                          {item.komentar}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="flex justify-center gap-4 absolute bottom-2 left-0 right-0 h-[40px] px-5">
+                <div className="flex justify-center gap-4 h-[40px] px-5">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.9 }}

@@ -14,6 +14,9 @@ const Produk = () => {
   };
 
   const [paketSelected, setPaketSelected] = React.useState("private");
+  const [pelajaranSelected, setPelajaranSelected] = React.useState(
+    "Iqra + Bimbel (Req)"
+  );
 
   const dataPrivate = [
     {
@@ -98,12 +101,48 @@ const Produk = () => {
     },
   ];
 
+  const dataPelajaran = [
+    {
+      _id: 1,
+      nama: "Iqra + Bimbel (Req)",
+    },
+    {
+      _id: 2,
+      nama: "Al-Qur an + Bimbel (Req)",
+    },
+    {
+      _id: 3,
+      nama: "Calistung",
+    },
+    {
+      _id: 4,
+      nama: "Temenin Belajar",
+    },
+    {
+      _id: 5,
+      nama: "B.Inggris + Bimbel (Req)",
+    },
+    {
+      _id: 6,
+      nama: "B.Arab + Bimbel (Req)",
+    },
+  ];
+
   const [data, setData] = React.useState(dataPrivate);
+
+  const handleChangePaket = (item) => {
+    setPelajaranSelected(item.nama);
+    setPaketSelected("private");
+    setData([]);
+    setTimeout(() => {
+      setData(dataPrivate);
+    }, 100);
+  };
 
   return (
     <section
       id="produk"
-      className="px-4 lg:pl-20 pt-0 lg:pt-[100px] md:h-[100vh] flex flex-col md:flex-row bg-green-500"
+      className="px-4 lg:pl-20 pt-0 lg:pt-[100px] md:h-[100vh] flex flex-col md:flex-row bg-gradient-to-r from-green-500 to-green-600"
     >
       <div className="w-full lg:w-[40%] mt-10 lg:mt-0 md:pl-10 flex flex-col items-center justify-start">
         <div className="mb-5">
@@ -119,13 +158,13 @@ const Produk = () => {
           <Fade left>
             <h2 className="mt-4 lg:mt-8 text-[20px] sm:text-[24px] md:text-[24px] lg:text-[24px] text-slate-900 ">
               {translate(
-                "Tidak ada tambahan Pembayaran di luar Proo +",
-                "Tidak ada tambahan Pembayaran di luar Proo +"
+                "Tidak ada tambahan Pembayaran di luar Proo",
+                "Tidak ada tambahan Pembayaran di luar Proo"
               )}{" "}
               <span className="font-bold text-[20px] sm:text-[24px] md:text-[24px] lg:text-[24px] text-slate-900">
                 {translate(
-                  "Gratis Biaya Pendidikan",
-                  "Gratis Biaya Pendidikan"
+                  "+ Gratis Biaya Pendaftaran",
+                  "+ Gratis Biaya Pendaftaran"
                 )}
               </span>
             </h2>
@@ -133,24 +172,18 @@ const Produk = () => {
         </div>
         <Fade bottom>
           <div className="flex gap-2 w-full flex-wrap">
-            <span className="font-bold bg-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              Iqra + Bimbel (Req)
-            </span>
-            <span className="font-bold bg-slate-900 text-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              Al-Qur an + Bimbel (Req)
-            </span>
-            <span className="font-bold bg-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              Calistung
-            </span>
-            <span className="font-bold bg-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              Temenin Belajar
-            </span>
-            <span className="font-bold bg-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              B.Inggris + Bimbel (Req)
-            </span>
-            <span className="font-bold bg-white px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300 cursor-pointer">
-              B.Arab + Bimbel (Req)
-            </span>
+            {dataPelajaran.map((item) => (
+              <button
+                onClick={() => handleChangePaket(item)}
+                className={`font-bold ${
+                  pelajaranSelected === item.nama
+                    ? "bg-slate-900 text-white"
+                    : "bg-white"
+                } px-4 py-2 rounded-3xl shadow-lg hover:scale-105 ease-in-out duration-300`}
+              >
+                {item.nama}
+              </button>
+            ))}
           </div>
         </Fade>
         <Fade bottom>

@@ -86,7 +86,10 @@ const Blog = () => {
   };
 
   return (
-    <section id="blog" className=" bg-green-400 pt-[50px] md:pt-[100px] ">
+    <section
+      id="blog"
+      className=" bg-gradient-to-r from-green-300 to-green-500 pt-[50px] md:pt-[100px] "
+    >
       <div className="max-w-[1420px] m-auto pb-10 md:py-10 px-4">
         <div className="flex gap-6 justify-center pt-0 md:pt-4 pb-10">
           {kategoriBlog.map((item) => (

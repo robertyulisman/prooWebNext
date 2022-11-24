@@ -33,7 +33,7 @@ const Kontak = () => {
   };
 
   const handleSubmitMessage = () => {
-    const whatsappNumber = "6281271076751";
+    const whatsappNumber = "62895617957291";
     const message = `
     Nama : ${form.nama}
     Email : ${form.email}
@@ -52,7 +52,10 @@ const Kontak = () => {
   };
 
   return (
-    <section id="kontak" className="  bg-green-200">
+    <section
+      id="kontak"
+      className="  bg-gradient-to-r from-green-200 to-green-300"
+    >
       <div className="max-w-[1420px] m-auto px-4 lg:pl-20 pt-0 lg:pt-[100px]  md:h-[100vh] flex flex-col md:flex-row">
         <div className="w-full lg:w-[50%] mt-10 lg:mt-0">
           <Fade left>

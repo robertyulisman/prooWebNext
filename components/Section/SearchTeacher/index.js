@@ -61,7 +61,7 @@ const SearchTeacher = () => {
   return (
     <section
       id="home"
-      className="px-4 md:px-4 lg:px-20 pt-[200px]  md:py-0 h-[100%] md:h-[100vh] flex flex-col md:flex-row bg-amber-200"
+      className="px-4 md:px-4 lg:px-20 pt-[200px]  md:py-0 h-[100%] md:h-[100vh] flex flex-col md:flex-row bg-gradient-to-r from-amber-200 to-amber-300 "
     >
       <div className="w-full flex mt-0 lg:mt-[200px]  md:justify-start ml-0 md:ml-10 ">
         <div className="w-[500px] md:w-[500px] xl:w-[80%]">
@@ -97,7 +97,7 @@ const SearchTeacher = () => {
 
           {/* search bar start */}
           <div
-            className={`bg-white shadow-2xl border-[1px]  py-2 px-2 rounded-xl flex mt-6 w-full mb-6`}
+            className={`bg-white shadow-2xl border-[1px]  py-2 px-2 rounded-xl flex mt-6 w-full `}
           >
             {!showInput ? (
               <button onClick={handleClickInput} className={`w-full p-2 flex `}>
@@ -192,7 +192,7 @@ const SearchTeacher = () => {
                 animate={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -20 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="bg-white shadow-xl mt-2 rounded-xl border-[1px] border-slate-200 overflow-hidden w-[250px] absolute"
+                className="bg-white shadow-xl mt-2 rounded-xl border-[1px] border-slate-200 overflow-hidden w-[250px] absolute z-[999]"
               >
                 {lesson.map((item, index) => (
                   <p

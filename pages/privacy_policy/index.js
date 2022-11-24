@@ -17,14 +17,6 @@ const PrivacyPolicy = () => {
           name="description"
           content="Proo | Platform Penyedia Private Ngaji, dapat diakses dari https://proo.co.id/, salah satu prioritas utama kami adalah privasi pengunjung kami. Dokumen Kebijakan Privasi ini berisi jenis informasi yang dikumpulkan dan dicatat oleh Proo dan bagaimana kami menggunakannya."
         />
-        <link rel="icon" href="/favicon.ico" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Montserrat:wght@200;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <Navbar />
       <div className="w-full lg:w-[1000px] m-auto px-5 py-[80px] lg:p-20 ">

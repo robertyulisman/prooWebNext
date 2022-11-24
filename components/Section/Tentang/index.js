@@ -19,7 +19,7 @@ const Tentang = () => {
   return (
     <section
       id="tentang"
-      className="px-4 lg:pl-20 pt-0 lg:pt-[100px] h-full md:h-[100vh] flex flex-col md:flex-row bg-indigo-300"
+      className="px-4 lg:pl-20 pt-0 lg:pt-[100px] h-full md:h-[100vh] flex flex-col md:flex-row bg-gradient-to-r from-indigo-300 to-indigo-400"
     >
       <div className="md:w-[400px] lg:w-[50%] hidden md:flex items-end">
         <Image

@@ -56,7 +56,7 @@ const Testimoni = () => {
   return (
     <section
       id="testimoni"
-      className="px-4 lg:pl-20 pt-0 lg:pt-[100px] md:h-[100vh] flex flex-col md:flex-row bg-indigo-500"
+      className="px-4 lg:pl-20 pt-0 lg:pt-[100px] md:h-[100vh] flex flex-col md:flex-row bg-gradient-to-r from-indigo-500 to-indigo-600"
     >
       <div className="w-full lg:w-[50%] mt-10 lg:mt-0 md:pl-10">
         <div className="mb-5">
