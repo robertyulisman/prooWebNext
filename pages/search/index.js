@@ -115,9 +115,8 @@ const Search = () => {
 
 Saya mau Pesan Private untuk Pelajaran ${pelajaran} di ${location}
 dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
-
     window.open(
-      `https://web.whatsapp.com/send?phone=${noWa}&text=${message}`,
+      `https://api.whatsapp.com/send/?phone=${noWa}&text=${message}`,
       "_blank"
     );
   };
@@ -183,10 +182,16 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
                 <input
                   ref={inputLocationRef}
                   onFocus={() => {
-                    setShowPelajaran(false);
-                    setTimeout(() => {
-                      setShowLocation(true);
-                    }, 300);
+                    if (location === "Online") {
+                      inputRef.current.focus();
+                      setPelajaran("");
+                      setLocation("");
+                    } else {
+                      setShowPelajaran(false);
+                      setTimeout(() => {
+                        setShowLocation(true);
+                      }, 300);
+                    }
                   }}
                   onBlur={() =>
                     setTimeout(() => {
@@ -223,24 +228,35 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
               animate={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -20 }}
               exit={{ opacity: 0, y: -10 }}
-              className="bg-white shadow-xl mt-2 rounded-xl border-[1px] md:ml-[60px] border-slate-200 overflow-hidden w-[250px] absolute z-[999]"
+              className="bg-white shadow-xl mt-2 rounded-xl border-[1px] md:ml-[0px] border-slate-200 overflow-hidden w-[250px] absolute z-[999]"
             >
               {lesson.map((item, index) => (
                 <p
                   onClick={() => {
-                    setPelajaran(item.nama);
-                    setShowPelajaran(false);
-                    setTimeout(() => {
-                      inputLocationRef.current.focus();
-                      setShowLocation(true);
-                    }, 300);
+                    if (item.nama === "Bahasa Mandarin") {
+                      setPelajaran(item.nama);
+                      setShowPelajaran(false);
+                      setTimeout(() => {
+                        setLocation("Online");
+                      }, 300);
+                    } else {
+                      setPelajaran(item.nama);
+                      setShowPelajaran(false);
+                      setTimeout(() => {
+                        inputLocationRef.current.focus();
+                        setShowLocation(true);
+                      }, 300);
+                    }
 
                     Router.replace(
                       {
                         pathname: "/search",
                         query: {
                           pelajaran: item.nama,
-                          lokasi: location,
+                          lokasi:
+                            item.nama === "Bahasa Mandarin"
+                              ? "Online"
+                              : location,
                         },
                       },
                       undefined,
@@ -263,7 +279,7 @@ dengan Nama Ustadz/ Ustadzah ${nama} dan dengan ID USER ${_id}`;
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: -20 }}
-            className="bg-white shadow-xl mt-2 ml-[150px] md:ml-[350px] rounded-xl border-[1px] border-slate-200  w-[140px] md:w-[250px] absolute max-h-[300px] overflow-scroll scrollbar-hide
+            className="bg-white shadow-xl mt-2 ml-[150px] md:ml-[300px] rounded-xl border-[1px] border-slate-200  w-[140px] md:w-[250px] absolute max-h-[300px] overflow-scroll scrollbar-hide
             z-[998]"
           >
             {dataCity.map((item, index) => (

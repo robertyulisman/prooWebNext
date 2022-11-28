@@ -111,6 +111,7 @@ const Blog = () => {
           {dataBlogArtikel.map((item, index) => (
             <motion.div
               key={item._id}
+              onClick={() => handleDetailBlog(item)}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0, transition: { delay: 0.2 * index } }}
               className=" w-[80%] inline-block bg-white shadow-lg rounded-md overflow-hidden hover:scale-105 duration-300 ease-in-out hover:cursor-pointer mr-4"

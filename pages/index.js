@@ -36,7 +36,7 @@ export default function Home() {
     const message = `Hallo Admin Proo`;
 
     window.open(
-      `https://web.whatsapp.com/send?phone=${noWa}&text=${message}`,
+      `https://api.whatsapp.com/send/?phone=${noWa}&text=${message}`,
       "_blank"
     );
   };

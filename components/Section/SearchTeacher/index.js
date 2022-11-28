@@ -53,7 +53,7 @@ const SearchTeacher = () => {
       pathname: "/search",
       query: {
         pelajaran: pelajaran,
-        lokasi: location,
+        lokasi: pelajaran === "Bahasa Mandarin" ? "Online" : location,
       },
     });
   };
@@ -151,10 +151,16 @@ const SearchTeacher = () => {
                   <input
                     ref={inputLocationRef}
                     onFocus={() => {
-                      setShowPelajaran(false);
-                      setTimeout(() => {
-                        setShowLocation(true);
-                      }, 300);
+                      if (location === "Online") {
+                        inputRef.current.focus();
+                        setPelajaran("");
+                        setLocation("");
+                      } else {
+                        setShowPelajaran(false);
+                        setTimeout(() => {
+                          setShowLocation(true);
+                        }, 300);
+                      }
                     }}
                     onKeyDown={(event) => {
                       event.preventDefault();
@@ -197,12 +203,20 @@ const SearchTeacher = () => {
                 {lesson.map((item, index) => (
                   <p
                     onClick={() => {
-                      setPelajaran(item.nama);
-                      setShowPelajaran(false);
-                      setTimeout(() => {
-                        inputLocationRef.current.focus();
-                        setShowLocation(true);
-                      }, 300);
+                      if (item.nama === "Bahasa Mandarin") {
+                        setPelajaran(item.nama);
+                        setShowPelajaran(false);
+                        setTimeout(() => {
+                          setLocation("Online");
+                        }, 300);
+                      } else {
+                        setPelajaran(item.nama);
+                        setShowPelajaran(false);
+                        setTimeout(() => {
+                          inputLocationRef.current.focus();
+                          setShowLocation(true);
+                        }, 300);
+                      }
                     }}
                     className="py-2 px-4 hover:cursor-pointer hover:bg-primary hover:text-slate-100 "
                     key={index}

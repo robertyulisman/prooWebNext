@@ -59,6 +59,47 @@ const Produk = () => {
       isPopuler: false,
     },
   ];
+  const dataPrivateMandarin = [
+    {
+      _id: 1,
+      durasi: "1 Bulan",
+      pertemuan: "10 Pertemuan",
+      service: [
+        "1 Guru 1 Murid",
+        "1 Jam Pertemuan",
+        "Jaminan Keamanan",
+        "Gratis Konsultasi",
+      ],
+      harga: 950,
+      isPopuler: false,
+    },
+    {
+      _id: 2,
+      durasi: "1 Bulan",
+      pertemuan: "15 Pertemuan",
+      service: [
+        "1 Guru 1 Murid",
+        "1 Jam Pertemuan",
+        "Jaminan Keamanan",
+        "Gratis Konsultasi",
+      ],
+      harga: 1395,
+      isPopuler: true,
+    },
+    {
+      _id: 3,
+      durasi: "1 Bulan",
+      pertemuan: "20 Pertemuan",
+      service: [
+        "1 Guru 1 Murid",
+        "1 Jam Pertemuan",
+        "Jaminan Keamanan",
+        "Gratis Konsultasi",
+      ],
+      harga: 1900,
+      isPopuler: false,
+    },
+  ];
   const dataBerdua = [
     {
       _id: 1,
@@ -100,6 +141,47 @@ const Produk = () => {
       isPopuler: false,
     },
   ];
+  const dataBerduaMandarin = [
+    {
+      _id: 1,
+      durasi: "1 Bulan",
+      pertemuan: "10 Pertemuan",
+      service: [
+        "1 Guru 2 Murid",
+        "1 Jam Pertemuan",
+        "Jaminan Keamanan",
+        "Gratis Konsultasi",
+      ],
+      harga: 1450,
+      isPopuler: false,
+    },
+    {
+      _id: 2,
+      durasi: "1 Bulan",
+      pertemuan: "15 Pertemuan",
+      service: [
+        "1 Guru 2 Murid",
+        "1 Jam Pertemuan",
+        "Jaminan Keamanan",
+        "Gratis Konsultasi",
+      ],
+      harga: 2150,
+      isPopuler: true,
+    },
+    {
+      _id: 3,
+      durasi: "1 Bulan",
+      pertemuan: "20 Pertemuan",
+      service: [
+        "1 Guru 2 Murid",
+        "1 Jam Pertemuan",
+        "Jaminan Keamanan",
+        "Gratis Konsultasi",
+      ],
+      harga: 2900,
+      isPopuler: false,
+    },
+  ];
 
   const dataPelajaran = [
     {
@@ -126,6 +208,10 @@ const Produk = () => {
       _id: 6,
       nama: "B.Arab + Bimbel (Req)",
     },
+    {
+      _id: 7,
+      nama: "Mandarin",
+    },
   ];
 
   const [data, setData] = React.useState(dataPrivate);
@@ -134,9 +220,15 @@ const Produk = () => {
     setPelajaranSelected(item.nama);
     setPaketSelected("private");
     setData([]);
-    setTimeout(() => {
-      setData(dataPrivate);
-    }, 100);
+    if (item.nama === "Mandarin") {
+      setTimeout(() => {
+        setData(dataPrivateMandarin);
+      }, 100);
+    } else {
+      setTimeout(() => {
+        setData(dataPrivate);
+      }, 100);
+    }
   };
 
   return (
@@ -203,9 +295,15 @@ const Produk = () => {
             onClick={() => {
               setPaketSelected("private");
               setData([]);
-              setTimeout(() => {
-                setData(dataPrivate);
-              }, 100);
+              if (pelajaranSelected === "Mandarin") {
+                setTimeout(() => {
+                  setData(dataPrivateMandarin);
+                }, 100);
+              } else {
+                setTimeout(() => {
+                  setData(dataPrivate);
+                }, 100);
+              }
             }}
             className={`font-bold  ${
               paketSelected === "private"
@@ -218,11 +316,16 @@ const Produk = () => {
           <button
             onClick={() => {
               setPaketSelected("berdua");
-
               setData([]);
-              setTimeout(() => {
-                setData(dataBerdua);
-              }, 100);
+              if (pelajaranSelected === "Mandarin") {
+                setTimeout(() => {
+                  setData(dataBerduaMandarin);
+                }, 100);
+              } else {
+                setTimeout(() => {
+                  setData(dataBerdua);
+                }, 100);
+              }
             }}
             className={`font-bold  ${
               paketSelected === "berdua"
