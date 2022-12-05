@@ -33,7 +33,7 @@ const Kontak = () => {
   };
 
   const handleSubmitMessage = () => {
-    const whatsappNumber = "62895617957291";
+    const whatsappNumber = "6288279985858";
     const message = `
     Nama : ${form.nama}
     Email : ${form.email}

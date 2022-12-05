@@ -110,7 +110,7 @@ const Search = () => {
 
   const handlePilihGuru = () => {
     const { nama, _id } = guruSelected;
-    const noWa = "62895617957291";
+    const noWa = "6288279985858";
     const message = `Hallo Telemarketing Proo,
 
 Saya mau Pesan Private untuk Pelajaran ${pelajaran} di ${location}

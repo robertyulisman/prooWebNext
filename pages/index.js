@@ -32,7 +32,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleWindowScroll);
   }, []);
   const handleSentWa = () => {
-    const noWa = "6282173893175";
+    const noWa = "6288279985858";
     const message = `Hallo Admin Proo`;
 
     window.open(
